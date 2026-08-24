@@ -1,0 +1,56 @@
+<section id="experience" class="section experience">
+  <div class="container">
+    <div appReveal="up">
+      <span class="eyebrow">{{ 'experience.eyebrow' | translate }}</span>
+      <h2 class="section-title">{{ 'experience.title' | translate }}</h2>
+      <p class="section-lead">{{ 'experience.lead' | translate }}</p>
+    </div>
+
+    <div class="timeline" appReveal="up" revealStagger=".timeline-item" [revealDelay]="120">
+      @for (item of items(); track item.company + item.period; let i = $index) {
+        <div class="timeline-item" [class.open]="openIndex() === i" [class.right]="i % 2 === 1">
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card glass">
+            <button class="item-header" (click)="toggle(i)" [attr.aria-expanded]="openIndex() === i">
+              <div class="item-top">
+                <h3>{{ item.company }}</h3>
+                <span class="card-tag">{{ item.location }}</span>
+              </div>
+              <p class="role">{{ item.role }}</p>
+              <span class="period">{{ item.period }}</span>
+
+              <span class="chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+
+            <div class="item-body">
+              <div class="item-body-inner">
+                @if (item.context) {
+                  <p class="context"><strong>{{ 'experience.context' | translate }} —</strong> {{ item.context }}</p>
+                }
+
+                <span class="mini-label">{{ 'experience.achievements' | translate }}</span>
+                <ul class="achievements">
+                  @for (a of item.achievements; track a) {
+                    <li>{{ a }}</li>
+                  }
+                </ul>
+
+                <span class="mini-label">{{ 'experience.stack' | translate }}</span>
+                <div class="stack-preview">
+                  @for (tech of item.stack; track tech) {
+                    <span class="pill">{{ tech }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

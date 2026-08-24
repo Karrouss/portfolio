@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Expériences",
+    "education": "Parcours",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Développeur Web Full Stack · 8 ans d'expérience",
+    "roles": ["Développeur Full Stack", "Java / Spring Boot", "Angular", "Microservices"],
+    "pitch": "Je conçois des applications web modernes et évolutives, du micro-service Java jusqu'à l'interface Angular, avec une exigence de code propre et une passion pour l'expérience utilisateur.",
+    "cta_projects": "Voir mon parcours",
+    "cta_contact": "Me contacter",
+    "scroll": "Scroll",
+    "stat_years": "ans d'expérience",
+    "stat_missions": "missions clients",
+    "stat_stack": "technologies maîtrisées"
+  },
+  "skills": {
+    "eyebrow": "Boîte à outils",
+    "title": "Compétences & outils",
+    "lead": "Une stack orientée Java/Spring côté back et Angular côté front, complétée par les outils du quotidien d'un développeur full stack moderne.",
+    "tools_title": "Outils & pratiques"
+  },
+  "experience": {
+    "eyebrow": "Expérience",
+    "title": "Un parcours en missions",
+    "lead": "8 missions, du monolithique aux microservices. Cliquez sur une étape pour découvrir les réalisations.",
+    "context": "Contexte",
+    "achievements": "Réalisations",
+    "stack": "Stack technique"
+  },
+  "education": {
+    "eyebrow": "Formation",
+    "title": "Parcours académique",
+    "lead": "Une formation d'ingénieur généraliste, socle technique de mes 7 années de développement full stack."
+  },
+  "certifications": {
+    "eyebrow": "Certifications",
+    "title": "Certifications & langues",
+    "languages_title": "Langues"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Discutons de votre projet",
+    "lead": "Disponible en freelance pour vos projets Java / Angular. Contactez-moi directement.",
+    "phone": "Téléphone",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "cta": "Envoyer un email"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "made_with": "Conçu & développé avec Angular"
+  }
+}

@@ -1,0 +1,95 @@
+:host { display: block; }
+
+.panel {
+  padding: 70px 40px;
+  border-radius: var(--radius-l);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 260px;
+    background: radial-gradient(ellipse, rgba(124, 92, 255, 0.28), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.section-lead.centered { max-width: 520px; margin-inline: auto; text-align: center; }
+
+.contact-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-align: left;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+
+  &:hover { transform: translateY(-4px); border-color: var(--accent-2); }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--gradient-1);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #08080d;
+  }
+
+  .label { display: block; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .value { display: block; font-size: 0.92rem; font-weight: 600; margin-top: 2px; word-break: break-word; }
+}
+
+.cta { margin-top: 44px; }
+
+.site-footer {
+  padding: 30px 0 50px;
+  border-top: 1px solid var(--border);
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.to-top {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+
+  &:hover { transform: translateY(-4px); border-color: var(--accent-2); }
+}

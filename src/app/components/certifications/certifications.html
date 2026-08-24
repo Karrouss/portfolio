@@ -1,0 +1,32 @@
+<section class="section certifications">
+  <div class="container">
+    <div appReveal="up">
+      <span class="eyebrow">{{ 'certifications.eyebrow' | translate }}</span>
+      <h2 class="section-title">{{ 'certifications.title' | translate }}</h2>
+    </div>
+
+    <div class="grid">
+      <div class="certs" appReveal="left" revealStagger=".cert-card">
+        @for (cert of certifications; track cert.name) {
+          <div class="cert-card glass">
+            <span class="cert-icon">🏅</span>
+            <div>
+              <h3>{{ cert.name }}</h3>
+              <p>{{ cert.issuer }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="langs glass" appReveal="right">
+        <span class="langs-title">{{ 'certifications.languages_title' | translate }}</span>
+        @for (lang of languages; track lang.name.fr) {
+          <div class="lang-row">
+            <span>{{ language.isFr() ? lang.name.fr : lang.name.en }}</span>
+            <span class="lang-level">{{ language.isFr() ? lang.level.fr : lang.level.en }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

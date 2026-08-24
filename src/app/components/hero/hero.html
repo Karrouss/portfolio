@@ -1,0 +1,51 @@
+<section id="top" class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="container hero-grid">
+    <div class="hero-copy" appReveal="left">
+      <span class="eyebrow">{{ 'hero.eyebrow' | translate }}</span>
+
+      <h1 class="headline">
+        Khalil <span class="gradient-text">Arroussi</span>
+      </h1>
+
+      <div class="role-line">
+        <span class="role-cursor">&gt;</span>
+        <span class="role-text" [class.visible]="roleVisible()">{{ currentRole() }}</span>
+      </div>
+
+      <p class="pitch">{{ 'hero.pitch' | translate }}</p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#experience">{{ 'hero.cta_projects' | translate }}</a>
+        <a class="btn btn-ghost" href="#contact">{{ 'hero.cta_contact' | translate }}</a>
+      </div>
+
+      <div class="stats-row" #statsRow>
+        @for (stat of stats; track stat.labelKey; let i = $index) {
+          <div class="stat">
+            <span class="stat-value">{{ statValues()[i] }}{{ stat.suffix }}</span>
+            <span class="stat-label">{{ stat.labelKey | translate }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="hero-visual" appReveal="right" [revealDelay]="150">
+      <div class="photo-ring">
+        <img src="/images/khalil_jp.jpeg" alt="Khalil Arroussi" class="photo" />
+      </div>
+
+      @for (badge of badges; track badge; let i = $index) {
+        <span class="floating-badge" [style.--i]="i">{{ badge }}</span>
+      }
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-cue">
+    <span>{{ 'hero.scroll' | translate }}</span>
+    <span class="scroll-line"></span>
+  </a>
+</section>

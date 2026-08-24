@@ -1,0 +1,71 @@
+:host { display: block; }
+
+.grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.certs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  border-radius: var(--radius-m);
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease);
+
+  &:hover { transform: translateX(6px); border-color: var(--accent-2); }
+
+  h3 { font-family: var(--font-display); font-size: 1.05rem; }
+  p { color: var(--text-muted); font-size: 0.85rem; margin-top: 3px; }
+}
+
+.cert-icon {
+  font-size: 1.5rem;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gradient-1);
+}
+
+.langs {
+  padding: 26px 30px;
+  border-radius: var(--radius-m);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.langs-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-2);
+  margin-bottom: 14px;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+
+  &:first-of-type { border-top: none; }
+}
+.lang-level { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.82rem; }

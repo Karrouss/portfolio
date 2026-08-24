@@ -1,0 +1,235 @@
+:host { display: block; }
+
+.timeline {
+  position: relative;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: linear-gradient(var(--accent-1), var(--accent-2));
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent-2);
+  box-shadow: 0 0 0 4px var(--bg);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+  z-index: 1;
+}
+
+.timeline-item.open .timeline-dot {
+  background: var(--gradient-1);
+  border-color: transparent;
+}
+
+.timeline-card {
+  grid-column: 1;
+  justify-self: end;
+  width: 100%;
+  max-width: 440px;
+  margin-right: 46px;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.timeline-item.right .timeline-card {
+  grid-column: 2;
+  justify-self: start;
+  margin-right: 0;
+  margin-left: 46px;
+}
+
+.timeline-item.open .timeline-card {
+  border-color: var(--accent-2);
+  box-shadow: var(--shadow);
+}
+
+.item-header {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 24px 56px 22px 26px;
+  cursor: pointer;
+}
+
+.item-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-2);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.item-header .role {
+  color: var(--accent-1);
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 0.92rem;
+}
+
+.item-header .period {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+.chevron {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  transition: transform 0.35s var(--ease), color 0.3s var(--ease);
+}
+
+.timeline-item.open .chevron {
+  transform: rotate(180deg);
+  color: var(--accent-2);
+}
+
+.item-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease);
+}
+
+.timeline-item.open .item-body {
+  grid-template-rows: 1fr;
+}
+
+.item-body-inner {
+  overflow: hidden;
+  padding: 0 26px;
+}
+
+.timeline-item.open .item-body-inner {
+  padding-bottom: 26px;
+}
+
+.context {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-top: 4px;
+
+  strong { color: var(--text); }
+}
+
+.mini-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-2);
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gradient-1);
+    }
+  }
+}
+
+.stack-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 860px) {
+  .timeline::before { left: 5px; transform: none; }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    padding-left: 32px;
+  }
+
+  .timeline-dot {
+    left: 5px;
+    transform: none;
+  }
+
+  .timeline-card,
+  .timeline-item.right .timeline-card {
+    grid-column: 1;
+    justify-self: stretch;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .timeline-item { padding-left: 24px; }
+  .timeline-dot { left: -1px; }
+  .item-header { padding: 20px 46px 18px 20px; }
+  .item-body-inner { padding-inline: 20px; }
+}

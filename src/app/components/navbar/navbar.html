@@ -1,0 +1,30 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <div class="progress" [style.width.%]="progress()"></div>
+
+  <div class="container bar">
+    <a href="#top" class="logo">KA<span class="dot">.</span></a>
+
+    <nav class="links" [class.open]="menuOpen()">
+      @for (link of links; track link.id) {
+        <a [href]="'#' + link.id" (click)="closeMenu()">{{ link.label | translate }}</a>
+      }
+
+      <div class="mobile-actions">
+        <button class="chip" (click)="language.toggle()">{{ language.isFr() ? 'EN' : 'FR' }}</button>
+        <button class="chip icon" (click)="theme.toggle()" aria-label="toggle theme">
+          @if (theme.theme() === 'dark') { ☀️ } @else { 🌙 }
+        </button>
+      </div>
+    </nav>
+
+    <div class="actions">
+      <button class="chip" (click)="language.toggle()">{{ language.isFr() ? 'EN' : 'FR' }}</button>
+      <button class="chip icon" (click)="theme.toggle()" aria-label="toggle theme">
+        @if (theme.theme() === 'dark') { ☀️ } @else { 🌙 }
+      </button>
+      <button class="burger" [class.open]="menuOpen()" (click)="toggleMenu()" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

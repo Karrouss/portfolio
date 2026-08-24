@@ -1,0 +1,45 @@
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="panel glass" appReveal="scale">
+      <span class="eyebrow">{{ 'contact.eyebrow' | translate }}</span>
+      <h2 class="section-title">{{ 'contact.title' | translate }}</h2>
+      <p class="section-lead centered">{{ 'contact.lead' | translate }}</p>
+
+      <div class="contact-grid">
+        <a class="contact-item" [href]="'mailto:' + email">
+          <span class="icon">✉️</span>
+          <div>
+            <span class="label">{{ 'contact.email' | translate }}</span>
+            <span class="value">{{ email }}</span>
+          </div>
+        </a>
+
+        <a class="contact-item" [href]="'tel:' + phone">
+          <span class="icon">📞</span>
+          <div>
+            <span class="label">{{ 'contact.phone' | translate }}</span>
+            <span class="value">{{ phone }}</span>
+          </div>
+        </a>
+
+        <a class="contact-item" [href]="linkedin" target="_blank" rel="noopener">
+          <span class="icon">in</span>
+          <div>
+            <span class="label">{{ 'contact.linkedin' | translate }}</span>
+            <span class="value">arroussi-khalil</span>
+          </div>
+        </a>
+      </div>
+
+      <a class="btn btn-primary cta" [href]="'mailto:' + email">{{ 'contact.cta' | translate }}</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container row">
+    <span>© {{ year }} Khalil Arroussi — {{ 'footer.rights' | translate }}</span>
+    <a href="#top" class="to-top">↑</a>
+    <span>{{ 'footer.made_with' | translate }}</span>
+  </div>
+</footer>
