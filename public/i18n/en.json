@@ -48,7 +48,25 @@
     "phone": "Phone",
     "email": "Email",
     "linkedin": "LinkedIn",
-    "cta": "Send an email"
+    "cta": "Send an email",
+    "form": {
+      "divider": "Or send me a message",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "email_label": "Your email",
+      "email_placeholder": "you@example.com",
+      "subject_label": "Subject",
+      "subject_placeholder": "What's this about?",
+      "message_label": "Message",
+      "message_placeholder": "Describe your project or request...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Thanks! Your message has been sent, I'll get back to you soon.",
+      "error": "Something went wrong while sending. Please try again or email me directly.",
+      "error_required": "This field is required.",
+      "error_email": "Please enter a valid email address.",
+      "error_message": "Your message must be at least 10 characters long."
+    }
   },
   "footer": {
     "rights": "All rights reserved.",

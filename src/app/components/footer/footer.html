@@ -31,7 +31,59 @@
         </a>
       </div>
 
-      <a class="btn btn-primary cta" [href]="'mailto:' + email">{{ 'contact.cta' | translate }}</a>
+      <div class="divider"><span>{{ 'contact.form.divider' | translate }}</span></div>
+
+      <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-name">{{ 'contact.form.name_label' | translate }}</label>
+            <input id="cf-name" type="text" formControlName="name" [placeholder]="'contact.form.name_placeholder' | translate" />
+            @if (form.controls.name.invalid && form.controls.name.touched) {
+              <span class="field-error">{{ 'contact.form.error_required' | translate }}</span>
+            }
+          </div>
+
+          <div class="field">
+            <label for="cf-email">{{ 'contact.form.email_label' | translate }}</label>
+            <input id="cf-email" type="email" formControlName="email" [placeholder]="'contact.form.email_placeholder' | translate" />
+            @if (form.controls.email.invalid && form.controls.email.touched) {
+              <span class="field-error">{{ 'contact.form.error_email' | translate }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cf-subject">{{ 'contact.form.subject_label' | translate }}</label>
+          <input id="cf-subject" type="text" formControlName="subject" [placeholder]="'contact.form.subject_placeholder' | translate" />
+          @if (form.controls.subject.invalid && form.controls.subject.touched) {
+            <span class="field-error">{{ 'contact.form.error_required' | translate }}</span>
+          }
+        </div>
+
+        <div class="field">
+          <label for="cf-message">{{ 'contact.form.message_label' | translate }}</label>
+          <textarea id="cf-message" rows="5" formControlName="message" [placeholder]="'contact.form.message_placeholder' | translate"></textarea>
+          @if (form.controls.message.invalid && form.controls.message.touched) {
+            <span class="field-error">{{ 'contact.form.error_message' | translate }}</span>
+          }
+        </div>
+
+        <div class="honeypot" aria-hidden="true">
+          <label for="cf-company">Company</label>
+          <input id="cf-company" type="text" formControlName="company" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn btn-primary cta" [disabled]="state() === 'sending'">
+          {{ (state() === 'sending' ? 'contact.form.sending' : 'contact.form.submit') | translate }}
+        </button>
+
+        @if (state() === 'success') {
+          <p class="form-status success">{{ 'contact.form.success' | translate }}</p>
+        }
+        @if (state() === 'error') {
+          <p class="form-status error">{{ 'contact.form.error' | translate }}</p>
+        }
+      </form>
     </div>
   </div>
 </section>
