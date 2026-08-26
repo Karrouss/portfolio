@@ -21,7 +21,8 @@
     "eyebrow": "Boîte à outils",
     "title": "Compétences & outils",
     "lead": "Une stack orientée Java/Spring côté back et Angular côté front, complétée par les outils du quotidien d'un développeur full stack moderne.",
-    "tools_title": "Outils & pratiques"
+    "tools_title": "Outils & pratiques",
+    "orbit_title": "Langages & frameworks"
   },
   "experience": {
     "eyebrow": "Expérience",

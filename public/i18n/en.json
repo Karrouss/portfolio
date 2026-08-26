@@ -21,7 +21,8 @@
     "eyebrow": "Toolbox",
     "title": "Skills & tools",
     "lead": "A stack built around Java/Spring on the backend and Angular on the frontend, backed by the everyday tools of a modern full stack developer.",
-    "tools_title": "Tools & practices"
+    "tools_title": "Tools & practices",
+    "orbit_title": "Languages & frameworks"
   },
   "experience": {
     "eyebrow": "Experience",

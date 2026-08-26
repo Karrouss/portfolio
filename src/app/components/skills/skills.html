@@ -20,8 +20,38 @@
       }
     </div>
 
+    <div class="orbit-section" appReveal="up" [revealDelay]="160">
+      <span class="tools-title">{{ 'skills.orbit_title' | translate }}</span>
+
+      <p class="sr-only">{{ 'skills.orbit_title' | translate }}: {{ languagesList }}</p>
+
+      <div class="orbit-stage" aria-hidden="true">
+        <div class="orbit-scale">
+          <div class="orbit-tilt">
+            <div class="orbit-ring">
+              @for (lang of languages; track lang.name; let i = $index) {
+                <div
+                  class="orbit-card"
+                  [style.transform]="orbitCardTransform(i)"
+                  [style.--card-color]="'#' + (lang.hex ?? '4f8a72')"
+                >
+                  @if (lang.path) {
+                    <svg class="orbit-logo" viewBox="0 0 24 24">
+                      <path [attr.d]="lang.path" />
+                    </svg>
+                  } @else {
+                    <span class="orbit-monogram">{{ lang.monogram }}</span>
+                  }
+                  <span class="orbit-label">{{ lang.name }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="tools" appReveal="up" [revealDelay]="200">
-      <span class="tools-title">{{ 'skills.tools_title' | translate }}</span>
       <div class="marquee">
         <div class="marquee-track">
           @for (tool of tools; track $index) {
