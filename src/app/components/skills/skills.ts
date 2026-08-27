@@ -25,7 +25,7 @@ export class Skills implements AfterViewInit {
   orbitCardTransform(index: number): string {
     const angle = (360 / this.languages.length) * index;
     //return index < 7 ? `rotateY(${angle}deg) translateZ(${ORBIT_RADIUS_PX}px)` : `rotateY(${angle}deg) translateZ(-${ORBIT_RADIUS_PX}px)`;
-    return `rotateY(${angle}deg) translateZ(${ORBIT_RADIUS_PX}px)`;
+    return `rotateY(${angle}deg) translateZ(-${ORBIT_RADIUS_PX}px)`;
   }
 
   ngAfterViewInit(): void {

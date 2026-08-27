@@ -2,7 +2,8 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RevealDirective } from '../../core/gsap/reveal.directive';
-import { ContactService } from '../../core/services/contact.service';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 type SendState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -15,7 +16,6 @@ type SendState = 'idle' | 'sending' | 'success' | 'error';
 })
 export class Footer {
   private readonly fb = inject(FormBuilder);
-  private readonly contactService = inject(ContactService);
 
   protected readonly year = new Date().getFullYear();
   protected readonly phone = '07 54 55 34 56';
@@ -40,6 +40,7 @@ export class Footer {
     }
 
     if (this.form.controls.company.value) {
+      console.log('Honeypot filled, likely spam. Dropping submission.');
       // Silently drop likely spam without tipping off the bot.
       this.state.set('success');
       this.form.reset();
@@ -47,16 +48,38 @@ export class Footer {
     }
 
     this.state.set('sending');
-    const { name, email, subject, message } = this.form.getRawValue();
 
-    try {
-      await this.contactService.send({ name, email, subject, message });
-      this.state.set('success');
-      this.form.reset();
-    } catch {
-      this.state.set('error');
+    if(this.form.valid) {
+      const templateParams = {
+            from_name: this.form.value.name,
+            from_email: this.form.value.email,
+            message: this.form.value.message,
+            to_name: 'Khalil', // Or configured name
+            reply_to: this.form.value.email,
+        };
+
+        // Send Main Email (To You)
+        emailjs.send(environment.emailjs.serviceId, environment.emailjs.templateId, templateParams, environment.emailjs.publicKey)
+            .then((response: any) => {
+                // console.log('Main Email SUCCESS!', response.status, response.text);
+
+                // Send Auto-Reply (To User)
+                emailjs.send(environment.emailjs.serviceId, environment.emailjs.autoReplyTemplateId, templateParams, environment.emailjs.publicKey)
+                    .then((replyResponse: any) => {
+                        this.state.set('success');
+                        // console.log('Auto-Reply SUCCESS!', replyResponse.status, replyResponse.text);
+
+                        // Wait 3 seconds before resetting
+                        setTimeout(() => {
+                            this.form.reset();
+                        }, 3000);
+                    });
+            }, (err: any) => {
+                console.error('FAILED...', err);
+                this.state.set('error'); // Allow retrying
+            });
     }
+
   }
+
 }
-
-
