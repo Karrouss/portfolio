@@ -22,7 +22,6 @@ export class Navbar {
     { id: 'about', label: 'nav.about' },
     { id: 'skills', label: 'nav.skills' },
     { id: 'experience', label: 'nav.experience' },
-    { id: 'education', label: 'nav.education' },
     { id: 'contact', label: 'nav.contact' },
   ];
 
