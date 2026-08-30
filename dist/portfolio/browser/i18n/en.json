@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Full Stack Web Developer · 8 years of experience",
+    "roles": ["Full Stack Developer", "Java / Spring Boot", "Angular", "Microservices"],
+    "pitch": "I build modern, scalable web applications, from Java microservices to Angular interfaces, with a strong focus on clean code and delightful user experience.",
+    "cta_projects": "See my journey",
+    "cta_contact": "Get in touch",
+    "scroll": "Scroll",
+    "stat_years": "years of experience",
+    "stat_missions": "client missions",
+    "stat_stack": "technologies mastered"
+  },
+  "skills": {
+    "eyebrow": "Toolbox",
+    "title": "Skills & tools",
+    "lead": "A stack built around Java/Spring on the backend and Angular on the frontend, backed by the everyday tools of a modern full stack developer.",
+    "tools_title": "Tools & practices",
+    "orbit_title": "Languages & frameworks"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "A journey through missions",
+    "lead": "8 missions, from monolith to microservices. Click a step to discover the key achievements.",
+    "context": "Context",
+    "achievements": "Achievements",
+    "stack": "Tech stack"
+  },
+  "education": {
+    "eyebrow": "Education",
+    "title": "Academic background",
+    "lead": "An engineering degree, the technical foundation behind 7 years of full stack development."
+  },
+  "certifications": {
+    "eyebrow": "Certifications",
+    "title": "Certifications & languages",
+    "languages_title": "Languages"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about your project",
+    "lead": "Available for freelance Java / Angular projects. Reach out directly.",
+    "phone": "Phone",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "cta": "Send an email",
+    "form": {
+      "divider": "Or send me a message",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "email_label": "Your email",
+      "email_placeholder": "you@example.com",
+      "subject_label": "Subject",
+      "subject_placeholder": "What's this about?",
+      "message_label": "Message",
+      "message_placeholder": "Describe your project or request...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Thanks! Your message has been sent, I'll get back to you soon.",
+      "error": "Something went wrong while sending. Please try again or email me directly.",
+      "error_required": "This field is required.",
+      "error_email": "Please enter a valid email address.",
+      "error_message": "Your message must be at least 10 characters long."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "made_with": "Designed & built with Angular"
+  }
+}
