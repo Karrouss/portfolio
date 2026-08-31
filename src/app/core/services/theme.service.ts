@@ -28,6 +28,6 @@ export class ThemeService {
 
   private readInitial(): Theme {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === 'dark' ? 'dark' : 'light';
+    return stored === 'light' ? 'light' : 'dark';
   }
 }

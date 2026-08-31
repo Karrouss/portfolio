@@ -4,7 +4,7 @@ export interface SkillItem {
 }
 
 export const SKILLS: SkillItem[] = [
-  { name: 'Java / JEE / Spring', level: 90 },
+  { name: 'Java / Spring / Kafka', level: 90 },
   { name: 'Angular', level: 85 },
   { name: 'SQL', level: 90 },
   { name: 'Kubernetes / Docker', level: 65 },
